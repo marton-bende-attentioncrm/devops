@@ -5,7 +5,7 @@ public with sharing class AccountProcessor {
         System.debug('Some test console log for pipeline test');
 
         //Get every contact record
-        List<Contact> contactList = [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accountIdList];
+        List<Contact contactList = [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accountIdList];
 
         List<Account> updateList = new List<Account>();
 
