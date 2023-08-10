@@ -144,7 +144,14 @@ jobs:
               with:
                 sarif_file: changed-sources/apexScanResults.sarif
 
+            # We do a check-only deploy and we only run the tests specified in the PR
+            # If the env variable does not equal 'all', we know that there is a list of
+            # tests that can be run
 
-            #We deploy the changes and destructive changes into the org
+            # If the env variable equals all, we run all tests
+            - name: 'Check-only deploy delta changes - run all tests'
+              run: |
+                  sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --testlevel RunLocalTests  --json
+
             - name: 'Deploy destructive changes (if any)'
               run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
