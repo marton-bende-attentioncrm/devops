@@ -2,6 +2,7 @@ public with sharing class AccountProcessor {
     
     @future
     public static void countContacts(List<Id> accountIdList){
+        System.debug('Some test console log for pipeline test');
 
         //Get every contact record
         List<Contact> contactList = [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accountIdList];
