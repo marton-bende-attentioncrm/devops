@@ -3,6 +3,7 @@ public with sharing class AccountProcessorTest {
     
     @isTest
     public static void testClass(){
+        System.debug('test');
         Test.startTest();
         Account acc = new Account(Name = 'Test acc');
         insert acc;
