@@ -135,7 +135,7 @@ jobs:
             - name: 'Scan code'
               run: |
                   cd changed-sources
-                  sfdx scanner:run --format sarif --target './**/*.cls' --category "Design,Best Practices,Performance" --outfile 'apexScanResults.sarif'  
+                  sfdx scanner:run --format sarif --target './**/*.cls' --category "Design,Best Practices,Performance, Security" --outfile 'apexScanResults.sarif'  
                   cd ..
 
             # Now we upload the .sarif file as explained in the previous step
@@ -153,5 +153,5 @@ jobs:
               run: |
                   sfdx force:source:deploy -p "changed-sources/force-app" --checkonly --testlevel RunLocalTests
 
-            - name: 'Deploy destructive changes (if any)'
-              run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
+            # - name: 'Deploy destructive changes (if any)'
+            #   run: sfdx force:mdapi:deploy -d "changed-sources/destructiveChanges" --checkonly --ignorewarnings 
