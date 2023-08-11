@@ -4,7 +4,7 @@ public with sharing class AccountProcessor {
     public static void countContacts(List<Id> accountIdList){
 
         //Get every contact record
-        List<Contact> contactList = [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accountIdList];
+        List<Contact contactList = [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accountIdList];
 
         List<Account> updateList = new List<Account>();
 
