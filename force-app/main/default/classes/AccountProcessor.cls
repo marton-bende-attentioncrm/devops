@@ -3,6 +3,8 @@ public with sharing class AccountProcessor {
     @future
     public static void countContacts(List<Id> accountIdList){
 
+
+        System.debug('warning generated here');
         //Get every contact record
         List<Contact> contactList = [SELECT Id, AccountId FROM Contact WHERE AccountId IN :accountIdList];
 
